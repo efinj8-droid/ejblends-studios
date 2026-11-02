@@ -117,6 +117,7 @@ export default function App() {
       alert('Please fill out all required fields and select a time slot.');
       return;
     }
+    
   // Send booking details to your Twilio endpoint
   try {
     const response = await fetch('/api/send-sms', {
