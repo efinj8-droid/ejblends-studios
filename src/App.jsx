@@ -117,35 +117,6 @@ export default function App() {
       alert('Please fill out all required fields and select a time slot.');
       return;
     }
-  // Send booking details to your Twilio endpoint
-  try {
-    const response = await fetch('/api/send-sms', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        clientName: formData.name,      // Replace with your state variable names
-        serviceName: selectedService,   // e.g. "Fade & Haircut"
-        date: selectedDate,             // e.g. "2026-11-02"
-        time: selectedTime,             // e.g. "2:00 PM"
-        clientPhone: formData.phone,    // Client's phone number
-      }),
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      alert('Booking submitted! Check your phone for the confirmation text.');
-    } else {
-      console.error('SMS notification failed:', data.error);
-      alert('Booking saved, but notification failed to send.');
-    }
-  } catch (err) {
-    console.error('Error submitting booking:', err);
-  }
-};
-    }
 
     const newBooking = {
       id: 'EJ-' + Math.floor(1000 + Math.random() * 9000),
