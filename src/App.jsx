@@ -115,9 +115,8 @@ export default function App() {
     e.preventDefault();
     if (!selectedTime || !clientName || !clientPhone) {
       alert('Please fill out all required fields and select a time slot.');
-      ;const handleBookingSubmit = async (e) => {
-  e.preventDefault();
-
+      return;
+    }
   // Send booking details to your Twilio endpoint
   try {
     const response = await fetch('/api/send-sms', {
